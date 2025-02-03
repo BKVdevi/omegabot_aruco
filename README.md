@@ -22,7 +22,7 @@ recog_aruco = omegabot_aruco('output_recorded_aruco.avi')
 recog_aruco.is_aruco_visible()
 recog_aruco.get_aruco_markers()
 ```
-is_aruco_visible - проверяет видит ли робот  метку возвращате true или false
+is_aruco_visible - проверяет видит ли робот  метку возвращате true или false<br>
 get_aruco_markers - возвращет словарь ключем которого является номер метки,
 а значением массив содержащий [0]позиция центра маркера в камере по X,
 [1]позиция центра маркера в камере по Y, [2] Длинна диаголнали маркера(можно примерно определить его размер на изображении)
