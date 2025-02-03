@@ -8,7 +8,8 @@ import time
 
 class omegabot_aruco:
 
-    def __init__(self):
+    def __init__(self, video_input = 0):
+        self.input = video_input
         self.check_dictionary = {}
         self.dictionary_lock = threading.Lock()
         self.task = threading.Thread(target=self.bot_aruco_recog, daemon=True)
@@ -24,7 +25,8 @@ class omegabot_aruco:
 
     def bot_aruco_recog(self):
         # Подключение к видеостриму
-        self.cap = cv2.VideoCapture('output_recorded_aruco.avi')
+        self.cap = cv2.VideoCapture(self.input)
+        #self.cap = cv2.VideoCapture('output_recorded_aruco.avi')
         #cap = cv2.VideoCapture('rtsp://10.1.100.42:8554/picam_h264')
 
         if not self.cap.isOpened():
@@ -126,7 +128,7 @@ class omegabot_aruco:
         
 if __name__ == "__main__":
     try:
-        recog_aruco = omegabot_aruco()
+        recog_aruco = omegabot_aruco('output_recorded_aruco.avi')
         while True:
             if recog_aruco.is_aruco_visible() == True:
                 markers = recog_aruco.get_aruco_markers()
