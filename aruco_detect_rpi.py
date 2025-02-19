@@ -5,8 +5,8 @@ import cv2
 from cv2 import aruco
 
 # Подключение к видеостриму
-cap = cv2.VideoCapture('output_recorded_aruco.avi')
-#cap = cv2.VideoCapture('rtsp://10.1.100.126:8554/picam_h264')
+#cap = cv2.VideoCapture('output_recorded_aruco.avi')
+cap = cv2.VideoCapture('rtsp://10.1.100.27:8554/picam_h264')
 
 if not cap.isOpened():
     print("Не удалось открыть видеопоток")
